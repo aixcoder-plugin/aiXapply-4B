@@ -1,0 +1,53 @@
+name: Local DeepSeek
+version: 0.0.1
+schema: v1
+
+models:
+  - name: DeepSeek Chat
+    provider: deepseek
+    model: deepseek-chat
+    apiKey: ${{ secrets.DEEPSEEK_API_KEY }}
+    roles:
+      - chat
+
+  - name: aiXapply Apply
+    provider: openai
+    model: aiXapply-4B-RL
+    apiBase: http://127.0.0.1:14124/v1/
+    apiKey: any
+    useLegacyCompletionsEndpoint: false
+    roles:
+      - apply
+    defaultCompletionOptions:
+      contextLength: 131072
+      maxTokens: 65536
+      temperature: 0.3
+    requestOptions:
+      extraBodyProperties:
+        model: aiXapply-4B-RL
+    promptTemplates:
+      apply: |
+        You are a deterministic Code Patching Engine. Your task is to synthesize an "Updated File" by applying a partial "Update Snippet" to the provided "Source File".
+
+        ### Algorithm
+        1. Context Matching: Analyze the `Update Snippet` to identify the context anchors (the lines of code surrounding the changes). Locate the exact corresponding block in the `Source File`. The match must be unique.
+        2. Code Merging: Replace the matched block in the `Source File` with the logic from the `Update Snippet`.
+        3. Expansion: The `Update Snippet` contains omission markers (e.g., `// ... existing code ...`). You MUST replace these markers with the original, unchanged lines from the `Source File`.
+        4. Output Generation: Output the FULL content of the resulting file.
+
+        ### Constraints
+        - NO Laziness: Never output comments like `// ... rest of code ...` in the final output. You must write out every single line of the final code.
+        - Strict Fidelity: Preserve the original indentation style (spaces/tabs) and comments of the Source File for all unchanged parts.
+        - Safety: If the context in the snippet is ambiguous or cannot be found, output nothing.
+
+        ### Output Format
+        Output ONLY the FULL content of the resulting file.
+        Do not wrap the result in markdown fences.
+        Do not include XML tags or any explanation.
+
+        ### Task
+        <source_file>{{{original_code}}}</source_file>
+
+        <update_snippet>{{{new_code}}}</update_snippet>
+
+        Please generate the full updated code strictly following the instructions.

@@ -1,0 +1,83 @@
+aiXapply
+Copyright 2026 aiXcoder
+
+This product is released under the Apache License, Version 2.0 (see LICENSE).
+
+================================================================================
+Third-Party Dependencies
+================================================================================
+
+This project depends on, links to, or is distributed alongside the following
+third-party software. The relevant license files remain with their respective
+upstream projects.
+
+--------------------------------------------------------------------------------
+verl  -- https://github.com/verl-project/verl
+        Apache License 2.0
+        Included as a Git submodule under training/rl/verl/.
+        Pinned commit: d66120d7705989f9fda71b1fb3b45cba250e68c4
+
+--------------------------------------------------------------------------------
+TRL (Transformer Reinforcement Learning) -- https://github.com/huggingface/trl
+        Apache License 2.0
+        Runtime dependency installed via pip (see training/sft/requirements.txt).
+
+--------------------------------------------------------------------------------
+Hugging Face Transformers, Datasets, huggingface-hub
+        https://github.com/huggingface/transformers
+        https://github.com/huggingface/datasets
+        https://github.com/huggingface/huggingface_hub
+        Apache License 2.0
+
+--------------------------------------------------------------------------------
+vLLM -- https://github.com/vllm-project/vllm
+        Apache License 2.0
+        External runtime; not vendored.
+
+--------------------------------------------------------------------------------
+OpenCode -- https://github.com/anomalyco/opencode
+        MIT License
+        Copyright (c) 2025 opencode
+        The search-and-replace baseline prompt adapts the OpenCode edit tool
+        description in experiments/search_and_replace/prompt_opencode_sar.py.
+
+--------------------------------------------------------------------------------
+Fast-Apply -- https://github.com/kortix-ai/fast-apply
+        Apache License 2.0
+        The Fast-Apply baseline prompts in
+        experiments/fast-apply/infer_openai_fast-apply.py reuse the inference
+        system and user prompts from the upstream Fast-Apply project so that
+        the Fast-Apply-7B baseline is evaluated under its native prompting.
+
+--------------------------------------------------------------------------------
+OpenAI Python SDK     -- https://github.com/openai/openai-python  -- Apache 2.0
+Anthropic Python SDK  -- https://github.com/anthropics/anthropic-sdk-python -- MIT
+aiohttp               -- https://github.com/aio-libs/aiohttp -- Apache 2.0
+aiolimiter            -- https://github.com/mjpieters/aiolimiter -- MIT
+tiktoken              -- https://github.com/openai/tiktoken -- MIT
+pandas                -- https://github.com/pandas-dev/pandas -- BSD 3-Clause
+pygments              -- https://pygments.org/ -- BSD 2-Clause
+pyyaml                -- https://pyyaml.org/ -- MIT
+tqdm                  -- https://github.com/tqdm/tqdm -- MIT + MPL 2.0
+requests              -- https://github.com/psf/requests -- Apache 2.0
+python-dotenv         -- https://github.com/theskumar/python-dotenv -- BSD 3-Clause
+
+--------------------------------------------------------------------------------
+Continue (integration adapter target)
+        https://github.com/continuedev/continue
+        Apache License 2.0
+        Not vendored; only an example configuration is provided under
+        continue_config/.
+
+================================================================================
+Data Sources
+================================================================================
+
+Training data is constructed from publicly available code repositories via
+the CommitPack-style pipeline described in the paper. See data_generation/
+for the full pipeline.
+
+Pre-trained backbone:
+  Qwen3-4B-Instruct-2507 -- https://huggingface.co/Qwen
+  Released under the Qwen license. Please consult the upstream model card
+  for the exact terms governing the base weights.

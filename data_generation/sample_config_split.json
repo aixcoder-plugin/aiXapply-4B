@@ -1,0 +1,88 @@
+{
+    "GENERAL_PROGRAMMING": {
+        "python": {
+            "train": 8297,
+            "test": 195
+        },
+        "java": {
+            "train": 5018,
+            "test": 200
+        },
+        "c++": {
+            "train": 3216,
+            "test": 128
+        },
+        "c": {
+            "train": 3724,
+            "test": 144
+        },
+        "go": {
+            "train": 1584,
+            "test": 80
+        },
+        "rust": {
+            "train": 1000,
+            "test": 50
+        },
+        "typescript": {
+            "train": 1000,
+            "test": 50
+        },
+        "javascript": {
+            "train": 7238,
+            "test": 200
+        }
+    },
+    "SCRIPT_SHELL": {
+        "shell": {
+            "train": 619,
+            "test": 50
+        }
+    },
+    "DATA_CONFIG": {
+        "json": {
+            "train": 1368,
+            "test": 54
+        },
+        "yaml": {
+            "train": 1013,
+            "test": 50
+        },
+        "ini": {
+            "train": 450,
+            "test": 50
+        },
+        "xml": {
+            "train": 751,
+            "test": 50
+        }
+    },
+    "MARKUP_DOC": {
+        "markdown": {
+            "train": 267,
+            "test": 50
+        },
+        "restructuredtext": {
+            "train": 200,
+            "test": 50
+        },
+        "html": {
+            "train": 415,
+            "test": 50
+        }
+    },
+    "DSL": {
+        "sql": {
+            "train": 750,
+            "test": 50
+        },
+        "dockerfile": {
+            "train": 200,
+            "test": 50
+        },
+        "makefile": {
+            "train": 210,
+            "test": 50
+        }
+    }
+}

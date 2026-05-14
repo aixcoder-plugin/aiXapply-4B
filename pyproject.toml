@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aixapply"
+version = "0.1.0"
+description = "Research artifact for AiXapply: Full-File Code Apply with specialized small models."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+dynamic = ["dependencies"]
+
+[project.urls]
+Homepage = "https://github.com/aixcoder-plugin/aiXapply-4B"
+Paper    = "https://github.com/aixcoder-plugin/aiXapply-4B"
+
+[tool.setuptools]
+# We expose three top-level namespace packages so that scripts can do
+#   from data_generation.prompt import PROMPT_TRAIN
+#   from experiments.evaluation.run_evaluation import main
+#   from training.rl.reward_function_rule_based_multi import compute_score_pygments
+# without any sys.path.insert hacks. Install with: `pip install -e .` from repo root.
+packages = [
+    "data_generation",
+    "experiments",
+    "experiments.aiXapply",
+    "experiments.apply_diff",
+    "experiments.evaluation",
+    "experiments.fast_apply",
+    "experiments.search_and_replace",
+    "training",
+    "training.rl",
+    "training.sft",
+]
+
+[tool.setuptools.package-dir]
+# `experiments/fast-apply` contains a hyphen which is not a legal Python
+# identifier. Map the package name (with underscore) to the on-disk folder.
+"experiments.fast_apply" = "experiments/fast-apply"
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }

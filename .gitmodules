@@ -1,0 +1,3 @@
+[submodule "training/rl/verl"]
+	path = training/rl/verl
+	url = https://github.com/verl-project/verl.git

@@ -1,0 +1,31 @@
+{
+    "GENERAL_PROGRAMMING": {
+        "python": 9341,
+        "java": 5740,
+        "c++": 3678,
+        "c": 3872,
+        "go": 1830,
+        "rust": 1155,
+        "typescript": 1155,
+        "javascript": 8182
+    },
+    "SCRIPT_SHELL": {
+        "shell": 736
+    },
+    "DATA_CONFIG": {
+        "json": 1564,
+        "yaml": 1169,
+        "ini": 550,
+        "xml": 881
+    },
+    "MARKUP_DOC": {
+        "markdown": 349,
+        "restructuredtext": 275,
+        "html": 512
+    },
+    "DSL": {
+        "sql": 880,
+        "dockerfile": 275,
+        "makefile": 286
+    }
+}
